@@ -1,0 +1,17 @@
+
+<div class="row">
+    <div class="col-xs-4 col-md-6 col-xl-4 mb-4" *ngFor="let item of productList ; let index=index" id={{index+1}}>
+        <div class="card text-center">
+            <img [src]="item.productImg" alt="" class="card-img-top">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{item.productName}}</h5>
+                <p>{{item.productPrice | currency: "INR"}}</p>
+                <hr>
+                <div class="quntity">
+                    <app-count-controller></app-count-controller>
+                </div>
+                <button class="btn btn-primary mt-3" (click)="onAddToBagClick(index , $event)">Add to Bag</button>
+            </div>
+        </div>
+    </div>
+</div>

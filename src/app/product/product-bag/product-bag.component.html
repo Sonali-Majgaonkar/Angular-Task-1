@@ -1,0 +1,28 @@
+<div class="col-6">
+    <h6 class="display-4 mb-5">Shopping Bag</h6>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No.</th>
+                <th>Product Name</th>
+                <th>Quntity</th>
+                <th>Price</th>
+                <th>Order Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bagItem of tableBagItem ; let index = index">
+                <td>{{(index + 1)}}</td>
+                <td>{{bagItem.bagItemName}}</td>
+                <td>{{bagItem.bagItemQty}}</td>
+                <td>{{bagItem.bagItemPrice}}</td>
+                <td>{{bagItem.bagItemTotal}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="onCancelBtnClick( index )">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,52 @@
+<section class="section-form">
+    <div class="backDrop">
+        <div class="formWrapper">
+            <div class="my-5 pt-4 bg-light">
+                <div class="formTitle">
+                    <h4 class="mt-3 ml-5 display-4">
+                        Add Product
+                        <a class="myCloseBtn" (click)="onCloseIcon()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                    </h4>
+
+                </div>
+
+                <form class="p-5" [formGroup]="addProductForm">
+                    <div class="form-group">
+                        <label for="imgSrc">Image</label>
+                        <input type="file" name="ImageURL" id="imgSrc" class="form-control" formControlName="img" (change)="onImgChangeEve($event)">
+                        <span class="text-danger text-capitalize" *ngIf="addProductForm.get('img').invalid && addProductForm.get('img').touched">
+                            please upload product image
+                        </span>
+                        <span class="text-danger text-capitalize" *ngIf="imgSize">
+                            Image must be less than 100kb
+                        </span>
+                    </div>
+                    <!-- {{addProductForm.get('img').traget.files[0]}} -->
+                    <div class="form-group">
+                        <label for="prdName">Product Name</label>
+                        <input type="text" name="productName" id="prdName" class="form-control" formControlName="pName">
+                        <span class="text-danger text-capitalize" *ngIf="addProductForm.get('pName').invalid && addProductForm.get('pName').touched">
+                            please enter product name
+                        </span>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" name="price" id="price" class="form-control" formControlName="price">
+                        <span class="text-danger text-capitalize" *ngIf="addProductForm.get('price').invalid && addProductForm.get('price').touched">
+                            please enter product price
+                        </span>
+                    </div>
+                    <div class="text-right mt-5">
+                        <button type="submit" class="btn btn-warning btn-lg mr-3 mb-3" (click)="onAddProductClick()"
+                            [disabled]=" !addProductForm.valid ">Add Product</button>
+                        <button type="button" class="btn btn-danger btn-lg mb-3" (click)="onCloseIcon()">Cancel</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
